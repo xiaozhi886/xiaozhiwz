@@ -1,98 +1,126 @@
 
 <!DOCTYPE html>
-
-<!-- -->
-
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<meta name="description" content="小志天天开心！">
-
-<meta name="keywords" content="机器人官网">
-
-<meta name="author" content="aidezy.com">
-
-<title>小志官网</title>
-
-<link rel="stylesheet" href="static/css/player.css">
-
-       <link href="static/css/Location.css" type="text/css" rel="stylesheet">
-
-   </head>
-
-    <body class="body--ready" data-pinterest-extension-installed="cr1.39.1">
-
-        <canvas class="canvas" width="100%" height="905"></canvas>
-
-        
-
-        
-
-    <div id="willerce">
-
-    <div>
-
-       <img src="http://q2.qlogo.cn/headimg_dl?dst_uin=2797666032&spec=5" id="logo" title="小志">
-
-       <h1>小志官网</h1>
-
-	   <a><h2>随机一言：风停之后再扬帆，船绝不会前行。</h2></a>		   
-
-	   <a><h2>欢迎您观看本网站！</h2></a>
-
-	   
-
-	   <a><h2>版权©所有 违者必究！</h2></a>
-
-	   
-
-    </div>	
-
-    <div class="menu">
-
-    <ul class="site" display="flex">
-
-      <li><a class="anniu" href="./主页2.html">进入主页</a><li>
-
-     </ui>
-
-	 </div>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>小志天天开心</title>
+</head>
+<body>
+    <div class="font">
+        <p>小志加载中</p>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
+    <div class="circle_wrap">
+        <div class="circle_inside"></div>
+        <div class="circle_outside">
+            <div class="wrapper right">
+                <div class="circle rightcircle"></div>
+            </div>
+            <div class="wrapper left">
+                <div class="circle leftcircle"></div>
+            </div>
+        </div>
+    </div>
+<li>小志天天开心</li>
+    <br>
+    <br>
+    <br>
+    <br>
+<br><br>
+    <br>
+    <br>
+<br><br>
+  
+    <br>
+<br><br>
+    <br>
+    <br>
+<溴><溴>
+    <溴>
+    <溴>
+<溴><溴>
+    <溴>
+    <溴>
+<溴><溴>
+    <溴>
+    <溴>
+    <溴>
+    <溴>
+<溴>
+<溴>
+    <溴>
+    <溴>
+<溴>
+ <！doctype html>
+<超文本标记语言>
+<头>
+	<元字符集="UTF-8">
+	<标题>跳转至其他网站并显示加载条</标题>
+	<风格>
+	/* 自定义加载条样式 */
+#加载杆{
+		宽度:0%;
+		高度:30PX;
+		背景色：#4CAF50；
+		位置:相对的;
+		动画名称:装载;
+		动画持续时间:5s;
+		动画定时功能:缓进缓出;
+	}
 
-    
+	@keyframes装载{
+		0%   {宽度:0%;}
+		100% {宽度:100%;}
+	}
+	</风格>
+</头>
+<身体>
+	<p></p>
+	<div身份标识="加载杆"></div>
+	<脚本>
+		var timeLeft=5;//设置初始时间
+		var loadingBar=文档。getElementById("加载杆");
+		var timerId=setTimeout(功能() { //使用setTimeout实现延时
+窗户。位置.href="https://xiaozhi886.github.io/xiaozhiwz/%E4%B8%BB%E9%A1%B52.html";//跳转到目标网站
+		}，timeLeft*1000);//将时间单位转换为毫秒
 
-        <script src="static/js/Seffects.js" type="text/javascript"></script>
-
-        
-
-<audio id="bgm" src="./storage/emulated/0/Android/data/com.tencent.mobileqq/cache/share/救苦救难观世音菩萨.m4a" autoplay preload loop="loop"></audio>
-
-        
-
-<script src="static/js/jquery.min.js"></script>
-
-<script src="static/js/jquery.marquee.min.js"></script>
-
-<script src="static/js/player.js"></script>
-
-<script>
-
-function bgChange(){
-
-	var lis= $('.lib');
-
-	for(var i=0; i<lis.length; i+=2)
-
-	lis[i].style.background = 'rgba(246, 246, 246, 0.5)';
-
-}
-
-window.onload = bgChange;
-
-</script>
-
-</body><div></div></html>
+		var intervalID=setInterval(功能() { //使用setInterval实现定时更新加载条
+timeLeft--；
+			如果(timeLeft>=0) {
+				var 进步=(5-timeLeft)/5*100;//计算加载进度
+loadingBar.风格.宽度=进度+"%";//更新加载条长度
+			}
+			其他 {
+				clearInterval(intervalID);//清除定时器
+			}
+		},1000);//每秒更新一次
+	</脚本>
+</身体>
+</超文本标记语言>
+  
+<！doctype html>
+<超文本标记语言>
+<头>
+	<元字符集="UTF-8">
+	<标题></标题>
+	<脚本>
+		var timerId=setTimeout(功能() { //使用setTimeout实现延时弹出提示
+			警惕的("系统加载失败，请检查网络❗，请勿频繁访问，否则会被拉黑");
+		},8000);//设置延时时间为7秒钟（7000毫秒）
+	</脚本>
+</头>
+<身体>
+<中心><p>欢迎来到本网站！</p></中心>
+<center><p>小志天天开心</p></center>
+</body>
+</html>
+ 
+ 
+</body>
+</超文本标记语言>
