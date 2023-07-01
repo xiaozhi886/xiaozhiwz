@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>查询快递信息</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: normal;
+      margin-top: 0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 18px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    input[type="text"] {
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 4px;
+      border: none;
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+
+    button[type="submit"] {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 16px;
+      border-radius: 4px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0062cc;
+    }
+
+    #result,
+    #error {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    #result p strong {
+      font-weight: bold;
+    }
+
+    #result p:not(:first-child) {
+      margin-top: 6px;
+    }
+
+    #result p:last-child,
+    #error p:last-child {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #999;
+    }
+
+    #error {
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      color: #721c24;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>查询快递信息</h1>
+    <form>
+      <label for="num">请输入快递单号：</label>
+      <input type="text" id="num" name="num" required>
+      <button type="submit" id="submit">查询</button>
+    </form>
+    <div id="result"></div>
+    <div id="error"></div>
+  </div>
+  <script>
+    const form = document.querySelector('form');
+    const input = document.querySelector('input[type="text"]');
+    const result = document.getElementById('result');
+    const error = document.getElementById('error');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const num = input.value.trim();
+      if (num === '') {
+        alert('请输入快递单号');
+        return;
+      }
+
+      const url = 'https://xiaoapi.cn/API/zs_kd.php?num=' + num;
+
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.code === 200) {
+            const dh = data.dh;
+            const name = data.name;
+            const msg = data.msg.replaceAll('\n', '<br>');
+            const tips = data.tips;
+
+            result.innerHTML = `
+              <p><strong>快递单号：</strong>${dh}</p>
+              <p><strong>快递公司：</strong>${name}</p>
+              <p><strong>快递信息：</strong></p>
+              <p>${msg}</p>
+              <p>小志提供技术支持</p>
+            `;
+            result.style.display = 'block';
+            error.style.display = 'none';
+
+          } else {
+            error.innerText = data.msg || '查询失败，请重新查询';
+            error.style.display = 'block';
+            result.style.display = 'none';
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          error.innerText = '查询失败，请稍后再试';
+          error.style.display = 'block';
+          result.style.display= 'none';
+        });
+    });
+  </script>
+</body>
+
+</html>

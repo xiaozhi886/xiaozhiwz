@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>美食器</title>
+    <style>
+    body{
+      background-color:black;
+      color:white;
+      }
+    </style>
+  </head>
+  <body>	
+	<center><h1 style="color:white">美食器</h1></center>
+    <h3>本次人物名字:</h3>
+    <p class="h"></p>
+    <button class="a">吃屎</button>
+    <button class="g">拉出来</button>
+    <button class="i">喝水</button>
+    <button class="j">麦当劳薯条</button>
+    <button class="k">跑一圈</button>
+    <button class="l">补品</button>
+    <button class="aa">尿尿</button>
+    <p style="color:white">饥饿值:</p>
+    <p class="b" style="color:white">50%</p>
+    <p class="e">水量:</p>
+    <p class="f">50%</p>
+    <p class="c">血量:</p>
+    <p class="d">100%</p>
+    <script>
+    let a = document.querySelector(".b")
+    let b = document.querySelector(".a")
+    let c = document.querySelector(".c")
+    let d = document.querySelector(".d")
+    let f = document.querySelector(".f")
+    let g = document.querySelector(".g")
+    let h = document.querySelector(".h")
+    let i = document.querySelector(".i")
+    let j = document.querySelector(".j")
+    let l = document.querySelector(".l")
+    let k = document.querySelector(".k")
+    let aa = document.querySelector(".aa")
+    let xueliang = 100
+    let jie = 50
+    let ke = 50
+    let ting = 0
+    let ding = 100
+    let ks = 0
+    let es = 0
+    let xueding = 145
+    
+     window.onload=function(){
+          setInterval(function(){
+                f.innerText=ke+"%";
+                ke--;
+            },3850);
+          setInterval(function (){
+                a.innerText=jie+"%"
+                jie--;
+          },3580);
+          setInterval(function (){
+                d.innerText=xueliang+"%"
+                xueliang--;
+          },5500);
+        if(ke <= 0){
+          alert(n+"渴死了");
+          ke = ks
+          jie = es
+        }
+        else if(jie <= 0){
+          alert(n+"饿死了");
+          ke = ks
+          jie = es
+        }
+        else if(xueliang <= 0){
+          xueliang = ting
+          alert(n+"死了");
+          jie = es
+          ke = ks
+        }
+       };
+    b.onclick=function (){
+      d.innerText = xueliang-2.5+"%"
+      let dechu1 = xueliang-2.5
+      a.innerText = jie+3+"%"
+      let dechu = jie+3
+      jie = dechu
+      xueliang = dechu1
+      f.innerText = ke+2.25+"%"
+      let dechu2 = ke+2.25
+      ke = dechu2
+      if(xueliang <= 0){
+        xueliang = ting
+        alert(n+"死了");
+        ke = ks
+        jie = es
+      }
+      else if(jie >= 100){
+        jie = ding
+        alert(n+"已经撑死了");
+        xueliang = ting
+        ke = ding
+      }
+      else if(ke >= 100){
+        ke = ding
+        alert(n+"已经被灌死了");
+        xueliang = ting
+        jie = ding
+      }
+    }
+    g.onclick=function (){
+      a.innerText = jie-4+"%"
+      let dechu = jie-4
+      jie = dechu
+      f.innerText = ke-3+"%"
+      let dechu2 = ke-2.25
+      ke = dechu2
+      d.innerText = xueliang-0.1+"%"
+      let dechu1 = xueliang-0.1
+      xueliang = dechu1
+      if(xueliang <= 0){
+        xueliang = ting
+        alert(n+"死了");
+        jie = es
+        ke = ks
+      }
+      else if(jie <= 0){
+        jie = es
+        alert(n+"已经饿死了");
+        xueliang = ting
+        ke = ks
+      }
+      else if(ke <= 0){
+        ke = ks
+        alert(n+"已经被渴死了");
+        xueliang = ting
+        jie = es
+      }
+    }
+    i.onclick=function (){
+      f.innerText = ke+1+"%"
+      let dechu2 = ke+1
+      ke = dechu2
+      if(xueliang <= 0){
+        xueliang = ting
+        alert(n+"死了");
+        jie = ding
+        ke = ding
+      }
+      else if(jie >= 100){
+        jie = ding
+        alert(n+"已经撑死了");
+        xueliang = ting
+        ke = ding
+      }
+      else if(ke >= 100){
+        ke = ding
+        alert(n+"已经被灌死了");
+        xueliang = ting
+        jie = ding
+      }
+    }
+    j.onclick=function (){
+      a.innerText = jie+5+"%"
+      let dechu = jie+5
+      jie = dechu
+      if(xueliang <= 0){
+        xueliang = ting
+        alert(n+"死了");
+        jie = ding
+        ke = ding
+      }
+      else if(jie >= 100){
+        jie = ding
+        alert(n+"已经撑死了");
+        xueliang = ting
+        ke = ding
+      }
+      else if(ke >= 100){
+        ke = ding
+        alert(n+"已经被灌死了");
+        xueliang = ting
+        jie = ding
+      }
+    }
+    k.onclick=function (){
+      d.innerText = xueliang-2+"%"
+      let dechu1 = xueliang-2
+      a.innerText = jie-10+"%"
+      let dechu = jie-10
+      jie = dechu
+      xueliang = dechu1
+      f.innerText = ke-10+"%"
+      let dechu2 = ke-10
+      ke = dechu2
+      if(xueliang <= 0){
+        xueliang = ting
+        alert(n+"死了");
+        jie = es
+        ke = ks
+      }
+      else if(jie <= 0){
+        jie = es
+        alert(n+"已经饿死了");
+        xueliang = ting
+        ke = ks
+      }
+      else if(ke <= 0){
+        ke = ks
+        alert(n+"已经被渴死了");
+        xueliang = ting
+        jie = es
+      }
+    }
+    l.onclick=function (){
+      d.innerText = xueliang+5+"%"
+      let dechu1 = xueliang+5
+      a.innerText = jie-1.5+"%"
+      let dechu = jie-1.5
+      jie = dechu
+      xueliang = dechu1
+      f.innerText = ke-2+"%"
+      let dechu2 = ke-2
+      ke = dechu2
+      if(xueliang <= 0){
+        xueliang = ting
+        alert(n+"死了");
+        jie = es
+        ke = ks
+      }
+      else if(jie <= 0){
+        jie = es
+        alert(n+"已经饿死了");
+        xueliang = xueding
+        ke = ks
+      }
+      else if(ke <= 0){
+        ke = ks
+        alert(n+"已经被渴死了");
+        xueliang = xueding
+        jie = es
+      }
+      else if(xueliang >= 145){
+        xueliang = xueding
+      }
+    }
+    aa.onclick=function (){
+      a.innerText = jie-0.5+"%"
+      let dechu = jie-0.5
+      jie = dechu
+      f.innerText = ke-4.5+"%"
+      let dechu2 = ke-4.5
+      ke = dechu2
+      if(xueliang <= 0){
+        xueliang = ting
+        alert(n+"死了");
+        jie = es
+        ke = ks
+      }
+      else if(jie <= 0){
+        jie = es
+        alert(n+"尿尿疲劳饥饿而死");
+        xueliang = ting
+        ke = ks
+      }
+      else if(ke <= 0){
+        ke = ks
+        alert(n+"已经被尿死了");
+        xueliang = ting
+        jie = es
+      }
+    }
+    n = prompt("输入名字")
+    h.innerText = n+"(这人很贪吃不喂死的快)"
+    </script>
+  </body>
+</html>

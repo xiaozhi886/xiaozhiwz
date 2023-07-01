@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ评估页面</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f1f1f1;
+        }
+        header {
+            width: 100%;
+            background-color: #393e46;
+            text-align: center;
+            color: #fff;
+            padding: 20px 0;
+            margin-bottom: 25px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+        .input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 80%;
+            max-width: 300px;
+            font-size: 18px;
+        }
+        button {
+            background-color: #393e46;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease-out;
+        }
+        button:hover {
+            background-color: #4e535d;
+        }
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        .rating img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-out;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        .error-message {
+            color: red;
+            margin-top: 20px;
+        }
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+            input {
+                font-size: 16px;
+            }
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>QQ评估页面</h1>
+    </header>
+
+    <div class="input">
+        <input id="qq-input" type="text" placeholder="请输入QQ号">
+        <button onclick="loadRatingImg()">查询</button>
+    </div>
+
+    <div class="rating">
+        <img id="rating-img" src="#" alt="QQ评估结果">
+    </div>
+
+    <div id="error-message" class="error-message"></div>
+
+    <script>
+     
+        const apiUrl = 'http://www.plapi.tk/api/pinggu.php?qq=';
+     
+        function getQqNumber() {
+            const qqInput = document.getElementById('qq-input');
+            return qqInput.value;
+        }
+      
+        function getRatingImgUrl() {
+            return apiUrl + getQqNumber();
+        }
+       
+        function loadRatingImg() {
+            const ratingImgUrl = getRatingImgUrl();
+            const ratingImg = document.getElementById('rating-img');
+          
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                
+                if (xhr.readyState === 4 && xhr.status === 200 && xhr.responseText) {
+                    
+                    ratingImg.src = ratingImgUrl;
+                    
+                    document.getElementById('error-message').style.display = 'none';
+                } else if (xhr.readyState === 4 && xhr.status === 200 && !xhr.responseText) {
+                    
+                    displayErrorMessage('接口返回内容有问题，请稍后再试');
+                    ratingImg.src = '';
+                } else if (xhr.readyState === 4 && xhr.status !== 200) {
+                    
+                    displayErrorMessage('接口请求失败，请检查您的网络连接或稍等再试');
+                    ratingImg.src = '';
+                }
+            };
+            xhr.open('GET', ratingImgUrl);
+            xhr.send();
+        }
+
+       
+        function displayErrorMessage(message) {
+            const errorMessageDiv = document.getElementById('error-message');
+            errorMessageDiv.textContent = message;
+            errorMessageDiv.style.display = 'block';
+        }
+
+        window.onload = function() {
+            loadRatingImg();
+        }
+    </script>
+</body>
+</html>
