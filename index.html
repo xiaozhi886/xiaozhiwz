@@ -1,218 +1,233 @@
+<!DOCTYPE html>
 <html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>小志天天开心</title>
+  </head>
+  <body>	
+	<p></p>  
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 
- <head></head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到小志网页</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://www.XXX.com/favicon.ico" type="image/x-icon">
+</head>
 
- <body>
+<body bgcolor="#fff" onload="newtext()">
+    <strong>
+        <marquee behavior="" direction="">欢迎来到小志的小窝</marquee>
+    </strong>
+    <section>
+        <div>
+            <img src="https://q2.qlogo.cn/headimg_dl?dst_uin=2797666032&amp;spec=100" alt="">
+            <h1>小志：今年17岁</h1>
+            <h3>小志QQ：2797666032</h3>
+            <p>小志天天开心</p>
+            <br>
+            <a href="#!">跳转小志官方网页❛‿˂̵✧</a>
+        </div>
+        <div>
+            <h2>小志天天开心</h2>
+                 <li><a href="./跳转官网.html" target="_blank" rel="noopener noreferrer">小志官网</a><li>
+            <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=C_KvXlWLXR8JOgi6GdOfnqrbcBmNQyZ-&authKey=sqXZfRWW08R1WgXici7dMN8X7G6rq86FoW9OH%2Fyu3PLGVfKgGA4oHApjfGaAVDUX&noverify=0&group_code=894055051" target="_blank" rel="noopener noreferrer">加小志交流群</a>
+            <a href="https://v.kuaishou.com/W2KPit" target="_blank" rel="noopener noreferrer">关注小志快手</a>
+            <a href="http://gchat.doumsg.top/gchatpic_new/0/0-0-39D1117085803659407BA6B87C2CF5B7/0" target="_blank" rel="noopener noreferrer">官网交流（如失效请反馈小志）</a>
+            <a href="https://xiaozhi886.github.io/xiaozhiwz/static/%E6%98%A5%E8%8A%82%E5%80%92%E8%AE%A1%E6%97%B6.html" target="_blank" rel="noopener noreferrer">春节倒计时</a>
+        </div>
+    </section>
+    <footer>
+        <p><a href="..." target="_blank" rel="noopener noreferrer">Copyright 2023-2024 版权所有 违者必究</a></p>
+        <p><a href="..." target="_blank" rel="noopener noreferrer">备案号：6410</a></p>
+    </footer>
+    <script>
+        var text = document.title
+        var timerID
+        function newtext() {
+            clearTimeout(timerID)
+            document.title = text.substring(1, text.length) + text.substring(0, 1)
+            text = document.title.substring(0, text.length)
+            timerID = setTimeout("newtext()", 300)
+        };
+    </script>
+</body>
 
-  <meta charset="UTF-8">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    /* 博客：https://xiaozhi886.github.io/xiaozhiwz/ */
+}
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+a {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    transition: color .3s;
+}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+a,
+img {
+    color: #fff;
+    -webkit-touch-callout: none;
+}
 
-  <title>小志天天开心</title>
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(125deg, #f64235, #eb1e62, #c648dc, #3e50b5, #2495f2);
+    background-size: 400%;
+    font-family: "montserrat";
+    perspective: 500px;
+    animation: move 15s infinite;
+}
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
-  <link rel="stylesheet" href="normalize.css">
-
-  <link rel="stylesheet" href="style.css">
-
-  <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
-
-  <script>
-
-    // document.oncontextmenu=new Function("event.returnValue=false;"); 
-
-    document.onkeydown=MM_KeyPress;
-
-    function  MM_KeyPress(num){
-
-        var keycODe = event.keyCODe;
-
-        if(keycode ==8)
-
-        {
-
-            event.keyCode = 0;
-
-            return;
-
-        }
-
-        if(keycode >=122 && keycode <=123)
-
-        {
-
-            event.keyCode = 0 ;
-
-            event.returnValue=false;
-
-            return;
-
-        }
-
+@keyframes move {
+    0% {
+        background-position: 0% 50%;
     }
 
+    50% {
+        background-position: 100% 50%;
+    }
 
-
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-
-
+strong {
+    display: block;
+    max-width: 340px;
+    margin: 50px auto 20px auto;
+    background-color: #fff;
+    font-size: 1.2em;
+    border-radius: 30px;
+    padding: 5px 0;
+    box-shadow: inset 2px 3px 5px 0 #ffffff70, inset -2px 2px 5px 0 #b6b3b396;
 }
 
-if (document.layers) {
-
-if (e.which == 3) {
-
-oncontextmenu='return false';
-
+strong marquee {
+    display: block;
+    width: 100%;
+    color: #9c27b0;
 }
 
+section {
+    position: relative;
+    max-width: 340px;
+    height: 380px;
+    margin: 10px auto;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
 }
 
+section:hover {
+    transform: rotateY(180deg);
 }
 
-if (document.layers) {
-
-document.captureEvents(Event.MOUSEDOWN);
-
+section div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 90%;
+    background-color: #fff;
+    box-shadow: inset 2px 3px 5px 0 #ffffff70, inset -2px 2px 5px 0 #b6b3b396;
+    padding: 10px 20px 30px;
+    border-radius: 30px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
 }
 
-document.onmousedown=click;
-
-document.oncontextmenu = new Function("return false;")
-
-document.onkeydown =document.onkeyup = document.onkeypress=function(){
-
-if(window.event.keyCode == 123) {
-
-window.event.returnValue=false;
-
-return(false);
-
+section div:first-child {
+    z-index: 1;
 }
 
+section div:last-child {
+    transform: rotateY(180deg);
 }
 
+section div:last-child a {
+    display: block;
+    margin: 10px auto;
+}
 
+section div:last-child h2 {
+    font-size: 1.5em;
+    color: #ff0000;
+    margin: 15px auto;
+}
 
+section div img {
+    border-radius: 50%;
+    border: 1px solid #000;
+    transition: all 1s;
+}
 
+section div img:hover {
+    transform: rotate(360deg);
+}
 
+section div h1,
+section div h3,
+section div p {
+    margin-top: 10px;
+}
 
+section div h1 {
+    color: #ff9800;
+}
 
-</script>
+section div h3 {
+    font-size: 1.2em;
+    color: #d92215;
+}
 
-  <section class="content">  
+section div a {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: green;
+    border: 2px solid greenyellow;
+    color: #fff;
+    border-radius: 10px;
+    transition: all .5s;
+}
 
-   <div class="box">
+section div a:hover {
+    border-color: #35b60e;
+}
 
-    <!-- 头像:替换你的QQ即可获取你的QQ头像 --> <img src="https://q2.qlogo.cn/headimg_dl?dst_uin=2797666032&amp;spec=100" alt="http://q.qlogo.cn/g?b=timqq&amp;k=YPjSQ2xaJvBrrbrkkKNBrQ&amp;kti=Y6UoigAAAAI&amp;s=4"> <!-- 名称 -->
+section div a:active {
+    background-color: #1b7100;
+}
 
-    <h1>小志科技</h1> <!-- 售后 -->
+section div p {
+    color: #454545;
+}
 
-    <div class="as">
+footer {
+    text-align: center;
+    width: 100%;
+}
 
-     <p>QQ：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=IJceljqLpn5KZ1_4rJFlhWONkG7fayds&noverify=0&personal_qrcode_source=4" target="_blank" rel="noopener noreferrer">2797666032</a></p>
+footer p {
+    line-height: 1.8em;
+}
 
-    <p>小志微信：<a href="http://off.doumsg.top/offpic_new/0/0-2804777210-8F6C2D75CB2F4457D95FA922C253F9D1/0" target="_blank" rel="noopener noreferrer">j20071031z</a></p>
+footer p a {
+    border-bottom: 1px solid #fff;
+    font-weight: bold;
+}
 
-     <p>小志QQ交流群：<a href="https://jq.qq.com/?_wv=1027&k=ENeVpjfL" target="_blank" rel="noopener noreferrer">894055051</a></p>
-
-           <p>小志快手：<a href="https://v.kuaishou.com/UDRcXA" target="_blank" rel="noopener noreferrer">j20071031j</a></p>
-    </div>
-
-    <div class="textwidget custom-html-widget">
-
-     <style>#nr{font-size:20px;margin: 0;background: -webkit-linear-gradient(left,#ffffff,#ff0000 6.25%,#ff7d00 12.5%,#ffff00 18.75%,#00ff00 25%,#00ffff 31.25%,#0000ff 37.5%,#ff00ff 43.75%,#ffff00 50%,#ff0000 56.25%,#ff7d00 62.5%,#ffff00 68.75%,#00ff00 75%,#00ffff 81.25%,#0000ff 87.5%,#ff00ff 93.75%,#ffff00 100%);-webkit-background-clip:text;-webkit-text-fill-color: transparent;background-size: 200% 100%;animation: masked-animation 2s infinite linear;}@keyframes masked-animation {0% {background-position: 0 0;}100% {background-position: -100%, 0;}}</style>
-
-     <div style="<div style=" background-color:#333;border-radius:25px;box-shadow:0px 0px 5px #f200ff;padding:5px;margin-top:10px;margin-bottom:0px;>
-
-      <marquee>
-
-       <b id="nr">公告：欢迎来到小志科技个人主页！小志天天开心</b>
-
-      </marquee>
-
-     </div>
-
-    </div> <!-- 超链接 -->
-
-    <ul class="site" display="flex">
-
-
-     <li><a href="./跳转浏览器.html" target="_blank" rel="noopener noreferrer">小志浏览器</a><li>
-   
-      <li><a href="./快递查询.html" target="_blank" rel="noopener noreferrer">快递查询</a><li>
-  
-      <li><a href="./老八美食.html" target="_blank" rel="noopener noreferrer">老八美食</a><li>
-      
-   <li><a href="./墓地逃亡/墓地逃亡.html" target="_blank" rel="noopener noreferrer">墓地逃亡游戏</a><li>
-
-     <li><a href="./QQ评估.html" target="_blank" rel="noopener noreferrer">QQ评估</a><li>
-     
-     <li><a href="./拉屎状态.html" target="_blank" rel="noopener noreferrer">记录拉屎</a><li>
-        
-   <li><a href="./小志频道/小志频道.html" target="_blank" rel="noopener noreferrer">小志频道</a><li>
-   
-   <li><a href=".视觉盛宴.html" target="_blank" rel="noopener noreferrer">视觉盛宴</a><li>
-   
-   <li><a href="./聊天机器人2/聊天机器人2.html" target="_blank" rel="noopener noreferrer">聊天机器人2</a><li>
-   
-   <li><a href="./计算器/计算器.html" target="_blank" rel="noopener noreferrer">小志计算器</a><li>
-   
-   <li><a href="./QQ聊天/QQ聊天.html" target="_blank" rel="noopener noreferrer">QQ聊天机器人</a><li>
-   
-   <li><a href="https://xiaozhi2024.github.io/shijian/" target="_blank" rel="noopener noreferrer">炫彩时间</a></li>
-
-   <li><a href="http://gchat.qpic.cn/gchatpic_new/2797666032/894055051-2920125034-3E53608E124AEDB71E9258DBD4C13403/0?term=2" target="_blank" rel="noopener noreferrer">领取云端</a></li>
-
-  <li><a href="https://jq.qq.com/?_wv=1027&k=ZSGr0Mhj" target="_blank" rel="noopener noreferrer">云端备用群聊</a></li>
-
-     <li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=IJceljqLpn5KZ1_4rJFlhWONkG7fayds&noverify=0&personal_qrcode_source=4" target="_blank" rel="noopener noreferrer">点击加Q</a></li>
-
-     <li><a href="https://jq.qq.com/?_wv=1027&k=ENeVpjfL" target="_blank" rel="noopener noreferrer">聊天群聊</a></li>
-
-     <li><a href="https://sharechain.qq.com/1c183965a6536091a45e789e50898200" target="_blank" rel="noopener noreferrer">自我介绍</a></li>
-
-     <li><a href="https://imgloc.com/" target="_blank" rel="noopener noreferrer">图床工具</a></li>
-
-     <li><a href="./static/春节倒计时.html" target="_blank" rel="noopener noreferrer">春节计时</a></li>
-
-     <li><a href="http://bbwyzz.sygjx.com/" target="_blank" rel="noopener noreferrer">表白网页DIY</a><li>
-
-     <li><a href="./好友页.html" target="_blank" rel="noopener noreferrer">我的Q友</a><li>
-
-   <li><a href="./爱心.html" target="_blank" rel="noopener noreferrer">爱心</a><li>
-
-   <li><a href="./年龄/年龄计算器.html" target="_blank" rel="noopener noreferrer">年龄</a><li>
-
-     <li><a href="./下载/小志下载官网.html" target="_blank" rel="noopener noreferrer">我的app</a><li>
-
-     <li><a href="./主页3.html" target="_blank" rel="noopener noreferrer">更多</a><li>
-
-    </ul>
-
-   </div>
-
-  </section>
-
-  <script src="flexible.js"></script> 
-
-  <!-- 音乐播放器代码 -->
-<audio id="bgm" src="http://sjy.stream.qqmusic.qq.com/M500001YCq1W3FEEja.mp3?guid=0&vkey=9C7BE25E5913B2E330A73353F604A5F66C5B3F32AB4E04E6F152928359AAA37C4550F64C416FF42812B3DCE42CC1036230B4B3C98EAF6AD2&uin=&fromtag=125042" autoplay preload loop="loop"></audio>
-
-<span>小志·天天开心 本官网已运行<span id="days">0</span>天</span>
-	 <script>var s1 = '2023-06-18';//设置为你的建站时间
-s1 = new Date(s1.replace(/-/g, "/"));
-s2 = new Date();
-var days = s2.getTime() - s1.getTime();
-var number_of_days = parseInt(days / (1000 * 60 * 60 * 24));
-document.getElementById('days').innerHTML = number_of_days;
-
-  </script>
-  
- </body>
-
-																						       </html>
+footer p a:hover {
+    color: #ffeb3b;
+}
