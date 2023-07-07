@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>简易暑假工自行打卡记录</title>
+</head>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			max-width: 100%;
+			margin: 0 auto;
+            text-align:center; 
+		}
+		.card {
+			background-color: #f7f7f7;
+            border-radius:5px;
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+		.card__title {
+			font-size: 20px;
+   font-weight:900;
+			margin-bottom: 10px;
+		}
+		.card__content {
+			font-size: 16px;
+            margin-bottom: 15px;
+		}
+		.card__content--highlight {
+			font-weight: bold;
+			color: #f00;
+		}
+		.btn {
+			display: inline-block;
+			background-color: #3498db;
+			color: #fff;
+			padding:10px 80px;
+			border-radius: 5px;
+			cursor: pointer;
+            border-width:0px;
+			margin-right: 10px;
+		}
+
+        #input-amount{
+            width:80%;
+            height:30px;
+            border-radius:5px;
+            text-align:center; 
+            margin-bottom: 15px;
+            border-width:0px;
+            }
+
+		.btn:hover {
+			background-color: #2980b9;
+		}
+		.record {
+			background-color: #fff;
+		    width:100%;
+            height:300px;
+            overflow: auto;
+            border-radius:5px;
+			margin-bottom: 20px;
+		}
+		.record__item {
+			margin-bottom: 10px;
+		}
+		.record__item--highlight {
+			font-weight: bold;
+			color: #f00;
+		}
+		.record__time {
+			font-size: 12px;
+			color: #999;
+			margin-left: 10px;
+		}
+		.total {
+			background-color: #f7f7f7;
+            border-radius:5px;
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+
+        @media screen and (max-width: 400px) {
+        body {
+            background-color:White;
+        }
+        }
+
+        @media screen and (min-width: 401px) and  (max-width: 800px) {
+        body {
+            background-color:White;
+        }
+        }
+
+        @media screen and (min-width: 801px) {
+        body {
+            background-color:White;
+        }
+        }
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card__title">打卡</div>
+			<div class="card__content">已打卡 <span id="days">0</span> 天</div>
+			<div class="card__content"><button class="btn" id="btn-punch">上班签到</button></div>
+		</div>
+
+		<div class="card">
+			<div class="card__title">食堂消费</div>
+			<div class="card__content">
+				<input type="text" placeholder="输入消费金额" id="input-amount">
+				<button class="btn" id="btn-consume-12">添加</button>
+			</div>
+			<div class="record" id="record">
+			</div>
+			<div class="card__content">
+				<button class="btn" id="btn-clear-all">清空全部</button>
+			</div>
+		</div>
+
+		<div class="total">
+			<div class="card__title">消费总计</div>
+			<div class="card__content">
+				消费总金额：<span id="total-amount">0</span>元
+			</div>
+		</div>
+	</div>
+
+<script>
+ 
+function getDays() {
+	let days = localStorage.getItem('punchDays');
+	if (days === null) {
+		days = 0;
+	}
+	return parseInt(days);
+}
+
+function updateDays(days) {
+	localStorage.setItem('punchDays', days.toString());
+	document.getElementById('days').innerText = days.toString();
+}
+
+function clearPunch() {
+	if (confirm('请再次确认！！！')) {
+		localStorage.removeItem('punchDays');
+		updateDays(0);
+	}
+}
+
+function getRecord() {
+	let record = localStorage.getItem('consumeRecord');
+	if (record === null) {
+		record = [];
+	} else {
+		record = JSON.parse(record);
+	}
+	return record;
+}
+
+function updateRecord(record) {
+	localStorage.setItem('consumeRecord', JSON.stringify(record));
+
+	let recordHtml = '';
+	for (let i = 0; i < record.length; i++) {
+		let item = record[i];
+		let itemHtml = `<div class="record__item${i === 0 ? ' record__item--highlight' : ''}">
+			${item.amount}元<span class="record__time">${item.time}</span>
+		</div>`;
+		recordHtml += itemHtml;
+	}
+
+	document.getElementById('record').innerHTML = recordHtml;
+}
+
+function getTotalAmount() {
+	let amount = localStorage.getItem('consumeTotalAmount');
+	if (amount === null) {
+		amount = 0;
+	}
+	return parseFloat(amount);
+}
+
+function updateTotalAmount(amount) {
+	localStorage.setItem('consumeTotalAmount', amount.toString());
+	document.getElementById('total-amount').innerText = amount.toString();
+}
+
+document.getElementById('btn-punch').addEventListener('click', function() {
+	let days = getDays() + 1;
+	updateDays(days);
+});
+
+document.getElementById('btn-consume-12').addEventListener('click', function() {
+	let amount = parseFloat(document.getElementById('input-amount').value);
+	if (isNaN(amount)) {
+		alert('请输入正确的消费金额！');
+		return;
+	}
+
+	let record = getRecord();
+	record.unshift({
+		amount: amount,
+		time: new Date().toLocaleString()
+	});
+	updateRecord(record);
+
+	let totalAmount = getTotalAmount() + amount;
+	updateTotalAmount(totalAmount);
+
+	document.getElementById('input-amount').value = '';
+});
+
+document.getElementById('btn-clear-all').addEventListener('click', function() {
+	if (confirm('确定清空所有记录吗？')) {
+		clearPunch();
+		localStorage.removeItem('consumeRecord');
+		updateRecord([]);
+		updateTotalAmount(0);
+	}
+});
+
+updateDays(getDays());
+updateRecord(getRecord());
+updateTotalAmount(getTotalAmount());
+
+</script>
+</body>
+</html>
