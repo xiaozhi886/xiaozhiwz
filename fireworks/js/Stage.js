@@ -85,7 +85,6 @@ const Stage = (function StageFactory(window, document, Ticker) {
 
 		// devicePixelRatio alias (should only be used for rendering, physics shouldn't care)
 		// avoids rendering unnecessary pixels that browser might handle natively via CanvasRenderingContext2D.backingStorePixelRatio
-		// Language translation of this project into Chinese by Nianbroken
 		this.dpr = Stage.disableHighDPI ? 1 : ((window.devicePixelRatio || 1) / (this.ctx.backingStorePixelRatio || 1));
 
 		// canvas size in DIPs and natural pixels
@@ -142,8 +141,7 @@ const Stage = (function StageFactory(window, document, Ticker) {
 
 	// allow turning off high DPI support for perf reasons (enabled by default)
 	// Note: MUST be set before Stage construction.
-	// Each stage tracks its own DPI (initialized at construction time), so you can effectively allow some Stages to render high-res graphics but not others.
-	// Language translation of this project into Chinese by Nianbroken
+	//       Each stage tracks its own DPI (initialized at construction time), so you can effectively allow some Stages to render high-res graphics but not others.
 	Stage.disableHighDPI = false;
 
 	// events
@@ -230,7 +228,6 @@ const Stage = (function StageFactory(window, document, Ticker) {
           pos = Stage.windowToCanvas(stage.canvas, touch.clientX, touch.clientY);
           stage._listeners.lastPointerPos = pos;
           // before touchstart event, fire a move event to better emulate cursor events
-		  // Language translation of this project into Chinese by Nianbroken
           if (type === 'start') stage.pointerEvent('move', pos.x / stage.dpr, pos.y / stage.dpr);
         }else{
           // on touchend, fill in position information based on last known touch location

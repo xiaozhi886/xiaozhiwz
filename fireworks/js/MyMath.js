@@ -21,7 +21,6 @@ const MyMath = (function MyMathFactory(Math) {
 	
 	// Pythagorean Theorem point distance calculation
 	// Same as above, but takes coordinates instead of dimensions.
-	// The language of this project was translated into Chinese by Nianbroken
 	MyMath.pointDist = (x1, y1, x2, y2) => {
 		const distX = x2 - x1;
 		const distY = y2 - y1;

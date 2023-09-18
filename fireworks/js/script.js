@@ -32,9 +32,9 @@ const GRAVITY = 0.9; // Acceleration in px/s
 let simSpeed = 1;
 
 function getDefaultScaleFactor() {
-	if (IS_MOBILE) return 0.5;
+	if (IS_MOBILE) return 0.9;
 	if (IS_HEADER) return 0.75;
-	return 0.5;
+	return 1;
 }
 
 // Width/height values that take scale into account.
@@ -104,7 +104,6 @@ function toggleFullscreen() {
 
 // Sync fullscreen changes with store. An event listener is necessary because the user can
 // toggle fullscreen mode directly through the browser, and we want to react to that.
-// The language of this project was translated into Chinese by Nianbroken
 fscreen.addEventListener('fullscreenchange', () => {
 	store.setState({ fullscreen: isFullscreen() });
 });
@@ -318,7 +317,7 @@ const helpContent = {
 	},
 	skyLighting: {
 		header: '照亮天空',
-		body: '烟花爆炸时，背景会被照亮。如果你的屏幕看起来太亮了，可以把它改成“暗”或者“不”。'
+		body: '烟花爆炸时，背景会被照亮。如果你的屏幕看起来太亮了，可以把它改成“暗”或者“无”。'
 	},
 	scaleFactor: {
 		header: '缩放',
@@ -1391,7 +1390,6 @@ function render(speed) {
 	// Draw queued burst flashes
 	// These must also be drawn using source-over due to Safari. Seems rendering the gradients using lighten draws large black boxes instead.
 	// Thankfully, these burst flashes look pretty much the same either way.
-	// The language of this project was translated into Chinese by Nianbroken
 	while (BurstFlash.active.length) {
 		const bf = BurstFlash.active.pop();
 		
@@ -1970,7 +1968,6 @@ class Shell {
 			// but when smaller shells are auto-fired, they will sound smaller. It doesn't sound great
 			// when a value too small is given though, so instead of basing it on proportions, we just
 			// look at the difference in size and map it to a range known to sound good.
-			// The language of this project was translated into Chinese by Nianbroken
 			const maxDiff = 2;
 			const sizeDifferenceFromMaxSize = Math.min(maxDiff, shellSizeSelector() - this.shellSize);
 			const soundScale = (1 - sizeDifferenceFromMaxSize / maxDiff) * 0.3 + 0.7;
@@ -2066,7 +2063,6 @@ const Star = {
 	},
 
 	// Public method for cleaning up and returning an instance back to the pool.
-	// Language translation of this project into Chinese by Nianbroken
 	returnInstance(instance) {
 		// Call onDeath handler if available (and pass it current star instance)
 		instance.onDeath && instance.onDeath(instance);
